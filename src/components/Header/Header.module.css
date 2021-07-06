@@ -1,0 +1,33 @@
+.header_container {
+  background-color: #1e242c;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_inner_container {
+  width: 65%;
+  color: white;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.logo_img {
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.ul_list {
+  display: flex;
+}
+
+.list_item {
+  margin-right: 50px;
+  cursor: pointer;
+}
