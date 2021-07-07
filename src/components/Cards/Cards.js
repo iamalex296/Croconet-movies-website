@@ -5,15 +5,15 @@ import classes from "./Cards.module.css";
 import ContentContainer from "../../UI/ContentContainer";
 
 const Cards = ({ dummyData }) => {
-  return (
-    <ContentContainer>
+  return dummyData.map((item) => (
+    <ContentContainer key={item.id} title={item.title}>
       <div className={classes["cards-container"]}>
         {dummyData.map((item) => (
-          <SingleCard imgSrc={item.img} altText={item.id} />
+          <SingleCard key={item.id} imgSrc={item.img} altText={item.id} />
         ))}
       </div>
     </ContentContainer>
-  );
+  ));
 };
 
 export default Cards;

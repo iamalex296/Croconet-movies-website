@@ -3,4 +3,5 @@
   color: white;
   display: flex;
   padding: 40px 15px;
+  flex-direction: column;
 }
