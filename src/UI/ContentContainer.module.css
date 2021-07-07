@@ -1,7 +1,13 @@
 .container {
   display: flex;
-  height: 500px;
+  height: 400px;
   background-color: #11171e;
-  border: 1px solid red;
+  border-bottom: 2px solid #1e242c;
   justify-content: center;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 15px 30px 15px;
 }
