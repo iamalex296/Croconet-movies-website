@@ -1,18 +1,14 @@
 import Header from "./components/Header/Header";
-import ContentContainer from "./UI/ContentContainer";
+// import ContentContainer from "./UI/ContentContainer";
 
 import "./App.css";
+import ContentLayout from "./components/Layout/ContentLayout";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <ContentContainer>
-        <p>Alex</p>Hello Alex
-      </ContentContainer>
-      <ContentContainer />
-      <ContentContainer />
-      <ContentContainer />
+      <ContentLayout />
     </div>
   );
 }

@@ -1,0 +1,11 @@
+.single-card {
+  height: 280px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.card-image {
+  height: 280px;
+  width: 180px;
+  border-radius: 7px;
+}
