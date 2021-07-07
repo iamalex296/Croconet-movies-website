@@ -2,8 +2,8 @@ import React from "react";
 
 import classes from "./Icon.module.css";
 
-const IconImg = (props) => {
+const Icon = (props) => {
   return <img className={classes.icon} src={props.src} alt={props.alt} />;
 };
 
-export default IconImg;
+export default Icon;

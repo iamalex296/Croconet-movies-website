@@ -1,0 +1,6 @@
+.cardsWrapperContainer {
+  width: 65%;
+  color: white;
+  display: flex;
+  padding: 40px 15px;
+}

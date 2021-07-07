@@ -1,9 +1,9 @@
 import React from "react";
 
 import Logo from "../../assets/logo3.png";
-import ProfileIcon from "../../assets/user.svg";
-import SearchIcon from "../../assets/searchIcon.jpg";
-import IconImg from "../../UI/Icon.js";
+import ProfileIcon from "../../assets/userProfile.svg";
+import SearchIcon from "../../assets/search.svg";
+import Icon from "../../UI/Icon.js";
 
 import classes from "./Header.module.css";
 
@@ -30,8 +30,8 @@ const Header = () => {
           </ul>
         </div>
         <div style={{ display: "flex" }}>
-          <IconImg src={SearchIcon} alt="SearchIcon" />
-          <IconImg src={ProfileIcon} alt="ProfileIcon" />
+          <Icon src={SearchIcon} alt="SearchIcon" />
+          <Icon src={ProfileIcon} alt="ProfileIcon" />
         </div>
       </div>
     </div>
