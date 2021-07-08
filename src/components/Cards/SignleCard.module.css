@@ -3,10 +3,24 @@
   width: 200px;
   cursor: pointer;
   margin-top: 40px;
+  position: relative;
+}
+
+.onHover {
+  display: none;
+}
+
+.single-card:hover .onHover {
+  display: block;
 }
 
 .card-image {
   height: 280px;
   width: 180px;
   border-radius: 7px;
+  position: relative;
+}
+
+.card-image:hover {
+  opacity: 0.7;
 }
