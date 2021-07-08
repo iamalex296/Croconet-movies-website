@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Logo from "../../assets/logo3.png";
 import ProfileIcon from "../../assets/userProfile.svg";
 import SearchIcon from "../../assets/search.svg";
 import Icon from "../../UI/Icon.js";
+import SearchInput from "../Input/SearchInput";
 
 import classes from "./Header.module.css";
 
@@ -16,6 +17,13 @@ const HEADER_LIST = [
 ];
 
 const Header = () => {
+  const [toggleSearchInput, setToggleSearchInput] = useState(false);
+
+  const toggleSearchInputHandler = () => {
+    const toggle = toggleSearchInput;
+    setToggleSearchInput(!toggle);
+  };
+
   return (
     <div className={classes["header_container"]}>
       <div className={classes["header_inner_container"]}>
@@ -28,9 +36,15 @@ const Header = () => {
               </li>
             ))}
           </ul>
+          {toggleSearchInput === true && <SearchInput />}
         </div>
+
         <div style={{ display: "flex" }}>
-          <Icon src={SearchIcon} alt="SearchIcon" />
+          <Icon
+            src={SearchIcon}
+            alt="SearchIcon"
+            onClickHandler={toggleSearchInputHandler}
+          />
           <Icon src={ProfileIcon} alt="ProfileIcon" />
         </div>
       </div>

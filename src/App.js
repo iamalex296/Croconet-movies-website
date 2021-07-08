@@ -1,5 +1,4 @@
 import Header from "./components/Header/Header";
-// import ContentContainer from "./UI/ContentContainer";
 
 import "./App.css";
 import ContentLayout from "./components/Layout/ContentLayout";

@@ -21,7 +21,7 @@ const ContentContainer = ({ children, title }) => {
                 height: "15px",
                 width: "15px",
                 padding: "0px",
-                marginLeft: "5px",
+                marginLeft: "3px",
                 borderRadius: "5px",
               }}
             />

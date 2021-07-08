@@ -9,6 +9,7 @@ const Icon = (props) => {
       style={props.style ? props.style : null}
       src={props.src}
       alt={props.alt}
+      onClick={props.onClickHandler}
     />
   );
 };
