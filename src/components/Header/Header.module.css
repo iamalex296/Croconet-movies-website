@@ -34,13 +34,13 @@
   left: 630px;
 }
 
-.list_item {
+.ul_list li {
   margin-right: 50px;
   cursor: pointer;
   transition-duration: 0.3s;
 }
 
-.list_item:hover {
+.ul_list li:hover {
   color: #86c8eb;
 }
 

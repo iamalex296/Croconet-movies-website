@@ -1,0 +1,38 @@
+.movies-popup-box {
+  background-color: #040506;
+  opacity: 0.95;
+  z-index: 1000;
+  height: 250px;
+  width: 700px;
+  border: none;
+  padding: 30px;
+  color: white;
+  position: absolute;
+  top: 100%;
+  right: 20%;
+  outline: none;
+}
+
+.movies-popup-box div {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.movies-popup-box div ul {
+  padding: 0;
+}
+
+.movies-popup-box div ul li {
+  cursor: pointer;
+  margin: 15px 0px;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.movies-popup-box ul li:hover {
+  color: #86c8eb;
+}
