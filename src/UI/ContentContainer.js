@@ -6,9 +6,17 @@ import Icon from "./Icon";
 import Arrow from "../assets/RightArrow.svg";
 import classes from "./ContentContainer.module.css";
 
-const ContentContainer = ({ children, title }) => {
+import BackgroundVideo from "../videos/backgroundVideo.mp4";
+
+const ContentContainer = ({ children, id, title }) => {
   return (
-    <div className={classes.container}>
+    <div className={`${id === 1 ? classes.firstContainer : classes.container}`}>
+      {id === 1 && (
+        <video autoPlay loop muted className={classes["background-video"]}>
+          <source src={BackgroundVideo} type="video/mp4" />
+        </video>
+      )}
+
       <CardsWrapperContainer>
         <div className={classes.title}>
           {title}

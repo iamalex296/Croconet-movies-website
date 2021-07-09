@@ -2,12 +2,31 @@
   display: flex;
   height: 100%;
   background-color: #11171e;
+  border-bottom: 1px solid #1e242c;
+  justify-content: center;
+}
+
+.firstContainer {
+  display: flex;
+  height: 100%;
+  background-color: transparent;
   border-bottom: 2px solid #1e242c;
   justify-content: center;
+  position: relative;
 }
 
 .title {
   display: flex;
   justify-content: space-between;
   margin: 0px 15px 30px 15px;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }

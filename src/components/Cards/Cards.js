@@ -7,7 +7,7 @@ import classes from "./Cards.module.css";
 
 const Cards = ({ dummyData }) => {
   return dummyData.map((item) => (
-    <ContentContainer key={item.id} title={item.title}>
+    <ContentContainer key={item.id} id={item.id} title={item.title}>
       <div className={classes["cards-container"]}>
         {dummyData.map((item) => (
           <>
