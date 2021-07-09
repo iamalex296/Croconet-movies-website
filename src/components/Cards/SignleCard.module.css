@@ -17,11 +17,23 @@
 
 .card-image {
   height: 280px;
-  width: 180px;
+  width: 100%;
   border-radius: 7px;
   position: relative;
 }
 
-.card-image:hover {
-  opacity: 0.5;
+.single-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  z-index: 1;
+}
+
+.single-card:hover::before {
+  display: block;
 }
