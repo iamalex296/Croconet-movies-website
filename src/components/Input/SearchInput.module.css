@@ -15,34 +15,12 @@
 
 @media (min-width: 1601px) {
   .input {
-    background-color: #040506;
-    opacity: 0.9;
     width: 980px;
-    z-index: 100;
-    height: 70px;
-    border: none;
-    padding-left: 10px;
-    color: white;
-    position: relative;
-    top: 0;
-    left: 0;
-    outline: none;
   }
 }
 
 @media (max-width: 1600px) {
   .input {
-    background-color: #040506;
-    opacity: 0.9;
     width: 920px;
-    z-index: 100;
-    height: 70px;
-    border: none;
-    padding-left: 10px;
-    color: white;
-    position: relative;
-    top: 0;
-    left: 0;
-    outline: none;
   }
 }

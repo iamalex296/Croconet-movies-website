@@ -11,21 +11,11 @@
 @media (min-width: 1601px) {
   .cardsWrapperContainer {
     width: 70%;
-    color: white;
-    display: flex;
-    padding: 10px 15px;
-    flex-direction: column;
-    justify-content: center;
   }
 }
 
 @media (max-width: 1700px) {
   .cardsWrapperContainer {
     width: 100%;
-    color: white;
-    display: flex;
-    padding: 10px 15px;
-    flex-direction: column;
-    justify-content: center;
   }
 }

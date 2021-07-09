@@ -1,6 +1,6 @@
 import React from "react";
 
-import Popup from "../Popup/Popup";
+import MovieDescriptionPopup from "../Popup/MovieDescriptionPopup";
 import playCircleIcon from "../../assets/playCirlce.svg";
 
 import classes from "./SignleCard.module.css";
@@ -22,7 +22,7 @@ const SingleCard = ({ imgSrc, altText }) => {
         className={classes.onHover}
       />
       <img src={imgSrc} alt={altText} className={classes["card-image"]} />
-      <Popup onHover={classes.onHover} />
+      <MovieDescriptionPopup onHover={classes.onHover} />
     </div>
   );
 };

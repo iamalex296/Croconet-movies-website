@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./Popup.module.css";
+import classes from "./MovieDescriptionPopup.module.css";
 
-const Popup = ({ onHover, title, info, description, imdb }) => {
+const MovieDescriptionPopup = ({ onHover, title, info, description, imdb }) => {
   return (
     <div className={`${classes["popup-box"]} ${onHover}`}>
       <div>{title}text</div>
@@ -12,4 +12,4 @@ const Popup = ({ onHover, title, info, description, imdb }) => {
   );
 };
 
-export default Popup;
+export default MovieDescriptionPopup;

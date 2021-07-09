@@ -1,0 +1,11 @@
+.login-registration-input {
+  background-color: #151515;
+  outline: none;
+  border: 1px solid #3e4043;
+  opacity: 0.8;
+  border-radius: 5px;
+  height: 25px;
+  width: 300px;
+  padding: 10px;
+  color: lightgrey;
+}

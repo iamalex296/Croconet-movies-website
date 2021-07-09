@@ -5,6 +5,7 @@ import ProfileIcon from "../../assets/userProfile.svg";
 import SearchIcon from "../../assets/search.svg";
 import Icon from "../../UI/Icon.js";
 import SearchInput from "../Input/SearchInput";
+import LoginRegisterPopup from "../Popup/LoginRegisterPopup";
 
 import classes from "./Header.module.css";
 
@@ -18,10 +19,18 @@ const HEADER_LIST = [
 
 const Header = () => {
   const [toggleSearchInput, setToggleSearchInput] = useState(false);
+  const [toggleLoginRegisterPopup, setToggleLoginRegisterPopup] = useState(
+    false
+  );
 
   const toggleSearchInputHandler = () => {
     const toggle = toggleSearchInput;
     setToggleSearchInput(!toggle);
+  };
+
+  const toggleLoginRegisterPopupHandler = () => {
+    const togglePopup = toggleLoginRegisterPopup;
+    setToggleLoginRegisterPopup(!togglePopup);
   };
 
   return (
@@ -36,7 +45,8 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          {toggleSearchInput === true && <SearchInput />}
+          {toggleSearchInput && <SearchInput />}
+          {toggleLoginRegisterPopup && <LoginRegisterPopup />}
         </div>
 
         <div style={{ display: "flex" }}>
@@ -45,7 +55,12 @@ const Header = () => {
             alt="SearchIcon"
             onClickHandler={toggleSearchInputHandler}
           />
-          <Icon src={ProfileIcon} alt="ProfileIcon" />
+          <Icon
+            src={ProfileIcon}
+            alt="ProfileIcon"
+            style={{ position: "relative" }}
+            onClickHandler={toggleLoginRegisterPopupHandler}
+          />
         </div>
       </div>
     </div>
