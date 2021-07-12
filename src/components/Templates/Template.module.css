@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  height: 100%;
+  background-color: #11171e;
+  border-bottom: 1px solid #1e242c;
+  justify-content: center;
+  min-height: calc(100vh - 70px - 61px);
+  text-align: start;
+}
+
+.inner-container {
+  width: 70%;
+  color: white;
+  display: flex;
+  padding: 10px 15px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width: 1601px) {
+  .inner-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1700px) {
+  .inner-container {
+    width: 100%;
+  }
+}

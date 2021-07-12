@@ -2,7 +2,8 @@
   background-color: #1e242c;
   display: flex;
   justify-content: space-evenly;
-  align-items: stretch;
-  padding: 10px;
+  align-items: center;
+  /* padding: 10px; */
+  height: 60px;
   color: grey;
 }

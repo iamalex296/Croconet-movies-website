@@ -6,6 +6,9 @@
 body {
   margin: 0;
   margin-top: 70px;
+}
+
+* {
   font-family: "BPG Banner Caps";
 }
 
