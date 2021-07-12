@@ -2,14 +2,13 @@ import React from "react";
 
 import classes from "./LoginRegistrationInput.module.css";
 
-const LoginRegistrationInput = ({ placeholder }) => {
+const LoginRegistrationInput = ({ placeholder, style }) => {
   return (
-    <div>
-      <input
-        className={classes["login-registration-input"]}
-        placeholder={placeholder}
-      />
-    </div>
+    <input
+      style={style}
+      className={classes["login-registration-input"]}
+      placeholder={placeholder}
+    />
   );
 };
 
