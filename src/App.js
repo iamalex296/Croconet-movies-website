@@ -5,6 +5,8 @@ import { Route, BrowserRouter as Router, Redirect } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MoviesPage from "./pages/MoviesPage";
 import SeriesPage from "./pages/SeriesPage";
+import PopularMoviesPage from "./pages/PopularMoviesPage";
+import RegistrationPage from "./pages/RegistrationPage";
 
 import Header from "./components/Header/Header";
 
@@ -27,6 +29,12 @@ function App() {
         </Route>
         <Route path="/series">
           <SeriesPage />
+        </Route>
+        <Route path="/popular">
+          <PopularMoviesPage />
+        </Route>
+        <Route path="/registration">
+          <RegistrationPage />
         </Route>
         <Footer />
       </Router>
