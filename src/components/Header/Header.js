@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Logo from "../../assets/logo3.png";
 import TvIcon from "../../assets/tv_white_48dp.svg";
@@ -41,84 +42,64 @@ const Header = () => {
   return (
     <div className={classes["header_container"]}>
       <div className={classes["header_inner_container"]}>
-        <img src={Logo} alt="logo" className={classes["logo_img"]} />
+        <Link to="/home">
+          <img src={Logo} alt="logo" className={classes["logo_img"]} />
+        </Link>
         <div>
           <ul className={classes["ul_list"]}>
-            <li>
-              {" "}
-              <Icon
-                style={{
-                  padding: "0px",
-                  margin: "0px 5px 0px 0px",
-                  background: "none",
-                  height: "15px",
-                  width: "15px",
-                }}
-                src={TvIcon}
-                alt="tv-icon"
-              />
-              თრეილერები
+            <li className={classes["header_navbar_list"]}>
+              <Link to="/trailers">
+                <Icon
+                  className={classes.icon_style}
+                  src={TvIcon}
+                  alt="tv-icon"
+                />
+                თრეილერები
+              </Link>
             </li>
             <li
+              className={classes["header_navbar_list"]}
               onClick={toggleMoviesGenrePopupHandler}
               style={{ position: "relative" }}
             >
-              <Icon
-                style={{
-                  padding: "0px",
-                  margin: "0px 5px 0px 0px",
-                  background: "none",
-                  height: "15px",
-                  width: "15px",
-                }}
-                src={MoviesIcon}
-                alt="tv-icon"
-              />
-              ფილმები
+              <Link to="/movies">
+                <Icon
+                  className={classes.icon_style}
+                  src={MoviesIcon}
+                  alt="tv-icon"
+                />
+                ფილმები
+              </Link>
             </li>
-            <li>
-              <Icon
-                style={{
-                  padding: "0px",
-                  margin: "0px 5px 0px 0px",
-                  background: "none",
-                  height: "15px",
-                  width: "15px",
-                }}
-                src={VideoIcon}
-                alt="tv-icon"
-              />
-              სერიალი
+            <li className={classes["header_navbar_list"]}>
+              <Link to="./series">
+                <Icon
+                  className={classes.icon_style}
+                  src={VideoIcon}
+                  alt="tv-icon"
+                />
+                სერიალი
+              </Link>
             </li>
-            <li>
-              {" "}
-              <Icon
-                style={{
-                  padding: "0px",
-                  margin: "0px 5px 0px 0px",
-                  background: "none",
-                  height: "15px",
-                  width: "15px",
-                }}
-                src={StarIcon}
-                alt="tv-icon"
-              />
-              პოპულარული
+            <li className={classes["header_navbar_list"]}>
+              <Link to="./popular">
+                <Icon
+                  className={classes.icon_style}
+                  src={StarIcon}
+                  alt="tv-icon"
+                />
+                პოპულარული
+              </Link>
             </li>
-            <li>
-              {" "}
-              <Icon
-                style={{
-                  padding: "0px",
-                  margin: "0px 5px 0px 0px",
-                  background: "none",
-                  height: "15px",
-                  width: "15px",
-                }}
-                src={NewsIcon}
-                alt="tv-icon"
-              />
-              სიახლეები
+            <li className={classes["header_navbar_list"]}>
+              <a href="http://news.croconet.ge/" target="blank">
+                <Icon
+                  className={classes.icon_style}
+                  src={NewsIcon}
+                  alt="tv-icon"
+                />
+                სიახლეები
+              </a>
             </li>
           </ul>
           {toggleMoviesGenrePopup && <MoviesGenrePopup />}
@@ -132,6 +113,7 @@ const Header = () => {
             alt="SearchIcon"
             onClickHandler={toggleSearchInputHandler}
           />
+
           <Icon
             src={ProfileIcon}
             alt="ProfileIcon"

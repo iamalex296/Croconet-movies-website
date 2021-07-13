@@ -34,15 +34,29 @@
   left: 630px;
 }
 
-.ul_list li {
+.header_navbar_list {
   margin-right: 50px;
   cursor: pointer;
   transition-duration: 0.3s;
   list-style: none;
 }
 
-.ul_list li:hover {
+.header_navbar_list a {
+  text-decoration: none;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.header_navbar_list a:hover {
   color: #86c8eb;
+}
+
+.icon_style {
+  padding: 0px;
+  margin: 0px 5px 0px 0px;
+  background: none;
+  height: 15px;
+  width: 15px;
 }
 
 @media (min-width: 1601px) {

@@ -10,7 +10,12 @@ import BackgroundVideo from "../videos/backgroundVideo.mp4";
 
 const ContentContainer = ({ children, id, title }) => {
   return (
-    <div className={`${id === 1 ? classes.firstContainer : classes.container}`}>
+    <div
+      className={`
+        ${id === 1 ? classes.firstContainer : classes.container} 
+        ${id === 2 ? classes.secondContainer : classes.container}
+      `}
+    >
       {id === 1 && (
         <video autoPlay loop muted className={classes["background-video"]}>
           <source src={BackgroundVideo} type="video/mp4" />

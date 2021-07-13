@@ -37,6 +37,29 @@
   background-color: #3394e6;
 }
 
+.registration_link {
+  text-decoration: none;
+  color: lightgrey;
+  transition-duration: 0.3s;
+}
+
+.registration_link:hover {
+  color: #86c8eb;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 15px;
+}
+
+.input_wrapper_box {
+  display: flex;
+  position: relative;
+  margin-top: 15px;
+}
+
 @media (min-width: 1601px) {
   .popup-box {
     margin-right: 280px;
