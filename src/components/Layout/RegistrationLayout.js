@@ -4,6 +4,8 @@ import Template from "../Templates/Template";
 import LoginRegistrationInput from "../Input/LoginRegistrationInput";
 import Button from "../Button/Button";
 
+import classes from "./RegistrationLayout.module.css";
+
 const RegistrationLayout = () => {
   return (
     <Template>
@@ -14,14 +16,8 @@ const RegistrationLayout = () => {
         დაკავშირებით შეგვატყობინეთ საიტის ადმინისტრაციას კონტაქტის საშუალებით.
       </p>
 
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-        }}
-      >
-        <label style={{ marginBottom: "10px" }}>სახელი</label>
+      <form className={classes["registration-form"]}>
+        <label className={classes["registration-label"]}>სახელი</label>
         <div
           style={{
             display: "flex",
@@ -37,7 +33,7 @@ const RegistrationLayout = () => {
           <Button type="button">შეამოწმე სახელი</Button>
         </div>
 
-        <div style={{ display: "flex", marginTop: "100px", width: "100%" }}>
+        <div style={{ display: "flex", marginTop: "50px", width: "100%" }}>
           <div
             style={{
               width: "50%",
@@ -46,17 +42,22 @@ const RegistrationLayout = () => {
               marginRight: "50px",
             }}
           >
-            <label style={{ marginBottom: "10px" }}>პაროლი</label>
+            <label className={classes["registration-label"]}>პაროლი</label>
             <LoginRegistrationInput style={{ width: "97%" }} />
           </div>
           <div
             style={{ width: "50%", display: "flex", flexDirection: "column" }}
           >
-            <label style={{ marginBottom: "10px" }}>გაიმეორე პაროლი</label>
+            <label className={classes["registration-label"]}>
+              გაიმეორე პაროლი
+            </label>
             <LoginRegistrationInput style={{ width: "97%" }} />
           </div>
         </div>
-        <label style={{ marginBottom: "10px", marginTop: "40px" }}>
+        <label
+          className={classes["registration-label"]}
+          style={{ marginTop: "40px" }}
+        >
           თქვენი ელ-ფოსტა
         </label>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
