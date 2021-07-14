@@ -4,6 +4,9 @@
   cursor: pointer;
   margin-top: 5px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .onHover {

@@ -4,3 +4,11 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
+.left-position {
+  left: 2000px;
+}
+
+.right-position {
+  right: 200px;
+}
