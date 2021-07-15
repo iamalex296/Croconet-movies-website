@@ -22,7 +22,6 @@ const Header = () => {
   const [toggleLoginRegisterPopup, setToggleLoginRegisterPopup] = useState(
     false
   );
-  const [toggleMoviesGenrePopup, setToggleMoviesGenrePopup] = useState(false);
 
   const toggleSearchInputHandler = () => {
     const toggle = toggleSearchInput;
@@ -32,11 +31,6 @@ const Header = () => {
   const toggleLoginRegisterPopupHandler = () => {
     const togglePopup = toggleLoginRegisterPopup;
     setToggleLoginRegisterPopup(!togglePopup);
-  };
-
-  const toggleMoviesGenrePopupHandler = () => {
-    const toggleMoviesPopup = toggleMoviesGenrePopup;
-    setToggleMoviesGenrePopup(!toggleMoviesPopup);
   };
 
   return (
@@ -50,7 +44,7 @@ const Header = () => {
             <li className={classes["header_navbar_list"]}>
               <Link to="/trailers">
                 <Icon
-                  className={classes.icon_style}
+                  className={classes["icon_style"]}
                   src={TvIcon}
                   alt="tv-icon"
                 />
@@ -59,24 +53,24 @@ const Header = () => {
             </li>
             <li
               className={classes["header_navbar_list"]}
-              onClick={toggleMoviesGenrePopupHandler}
               style={{ position: "relative" }}
             >
               <Link to="/movies">
                 <Icon
-                  className={classes.icon_style}
+                  className={classes["icon_style"]}
                   src={MoviesIcon}
-                  alt="tv-icon"
+                  alt="movies-icon"
                 />
                 ფილმები
               </Link>
+              <MoviesGenrePopup className={classes["movies-popup-box"]} />
             </li>
             <li className={classes["header_navbar_list"]}>
               <Link to="./series">
                 <Icon
-                  className={classes.icon_style}
+                  className={classes["icon_style"]}
                   src={VideoIcon}
-                  alt="tv-icon"
+                  alt="video-icon"
                 />
                 სერიალი
               </Link>
@@ -84,9 +78,9 @@ const Header = () => {
             <li className={classes["header_navbar_list"]}>
               <Link to="./popular">
                 <Icon
-                  className={classes.icon_style}
+                  className={classes["icon_style"]}
                   src={StarIcon}
-                  alt="tv-icon"
+                  alt="star-icon"
                 />
                 პოპულარული
               </Link>
@@ -94,30 +88,38 @@ const Header = () => {
             <li className={classes["header_navbar_list"]}>
               <a href="http://news.croconet.ge/" target="blank">
                 <Icon
-                  className={classes.icon_style}
+                  className={classes["icon_style"]}
                   src={NewsIcon}
-                  alt="tv-icon"
+                  alt="news-icon"
                 />
                 სიახლეები
               </a>
             </li>
           </ul>
-          {toggleMoviesGenrePopup && <MoviesGenrePopup />}
-          {toggleSearchInput && <SearchInput />}
           {toggleLoginRegisterPopup && <LoginRegisterPopup />}
         </div>
 
-        <div style={{ display: "flex" }}>
+        <div
+          style={{
+            display: "flex",
+            position: "relative",
+            height: "65px",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          {toggleSearchInput && <SearchInput />}
+
           <Icon
             src={SearchIcon}
             alt="SearchIcon"
+            style={{ position: "relative", padding: "25px" }}
             onClickHandler={toggleSearchInputHandler}
           />
-
           <Icon
             src={ProfileIcon}
             alt="ProfileIcon"
-            style={{ position: "relative" }}
+            style={{ position: "relative", padding: "25px" }}
             onClickHandler={toggleLoginRegisterPopupHandler}
           />
         </div>

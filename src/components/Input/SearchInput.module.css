@@ -7,10 +7,11 @@
   border: none;
   padding-left: 10px;
   color: white;
-  position: relative;
+  position: absolute;
   top: 0;
-  left: 0;
+  right: 100%;
   outline: none;
+  height: 100%;
 }
 
 @media (min-width: 1601px) {

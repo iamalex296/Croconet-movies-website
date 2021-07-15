@@ -2,9 +2,9 @@ import React from "react";
 
 import classes from "./MoviesGenrePopup.module.css";
 
-const MoviesGenrePopup = () => {
+const MoviesGenrePopup = ({ className }) => {
   return (
-    <div className={classes["movies-popup-box"]}>
+    <div className={`${classes["movies-popup-box"]} ${className}`}>
       <div>
         <ul>
           <li>ანიმაციური</li>

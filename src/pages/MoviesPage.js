@@ -1,7 +1,7 @@
 import React from "react";
 
 const MoviesPage = () => {
-  return <div>Movies Page</div>;
+  return <div style={{ height: "900px" }}>Movies Page</div>;
 };
 
 export default MoviesPage;

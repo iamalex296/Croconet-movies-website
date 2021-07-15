@@ -1,7 +1,7 @@
 import React from "react";
 
 const TrailersPage = () => {
-  return <div>TRAILERS PAGE</div>;
+  return <div style={{ height: "900px" }}>TRAILERS PAGE</div>;
 };
 
 export default TrailersPage;

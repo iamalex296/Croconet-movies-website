@@ -29,16 +29,18 @@
 
 .ul_list {
   display: flex;
-  position: absolute;
-  top: 10px;
-  left: 630px;
 }
 
 .header_navbar_list {
-  margin-right: 50px;
   cursor: pointer;
   transition-duration: 0.3s;
   list-style: none;
+  position: relative;
+  padding: 20px;
+}
+
+.header_navbar_list:hover .movies-popup-box {
+  display: block;
 }
 
 .header_navbar_list a {
@@ -71,7 +73,6 @@
   }
   .ul_list {
     display: flex;
-    position: absolute;
     top: 10px;
     left: 630px;
   }
@@ -86,11 +87,5 @@
     align-items: center;
     padding-right: 15px;
     padding-left: 15px;
-  }
-  .ul_list {
-    display: flex;
-    position: absolute;
-    top: 10px;
-    transform: translateX(-45%);
   }
 }

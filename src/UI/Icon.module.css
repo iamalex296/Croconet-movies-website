@@ -1,9 +1,8 @@
 .icon {
-  height: 30px;
-  width: 30px;
-  padding: 20px;
+  height: 20px;
   cursor: pointer;
   transition-duration: 0.3s;
+  position: relative;
 }
 
 .icon:hover {

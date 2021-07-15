@@ -5,12 +5,14 @@
   height: 250px;
   width: 700px;
   border: none;
-  padding: 30px;
+  padding: 20px;
+  border-radius: 7px;
   color: white;
   position: absolute;
   top: 100%;
-  right: 20%;
+  left: -50%;
   outline: none;
+  display: none;
 }
 
 .movies-popup-box div {
