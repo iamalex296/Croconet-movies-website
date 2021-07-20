@@ -103,7 +103,7 @@ const Header = () => {
           style={{
             display: "flex",
             position: "relative",
-            height: "65px",
+            height: "66px",
             alignItems: "center",
             justifyContent: "space-between",
           }}
@@ -113,13 +113,13 @@ const Header = () => {
           <Icon
             src={SearchIcon}
             alt="SearchIcon"
-            style={{ position: "relative", padding: "25px" }}
+            style={{ position: "relative", padding: "20px" }}
             onClickHandler={toggleSearchInputHandler}
           />
           <Icon
             src={ProfileIcon}
             alt="ProfileIcon"
-            style={{ position: "relative", padding: "25px" }}
+            style={{ position: "relative", padding: "20px" }}
             onClickHandler={toggleLoginRegisterPopupHandler}
           />
         </div>

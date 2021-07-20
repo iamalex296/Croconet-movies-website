@@ -4,6 +4,7 @@ import MovieDescriptionPopup from "../Popup/MovieDescriptionPopup";
 import playCircleIcon from "../../assets/playCirlce.svg";
 
 import classes from "./SignleCard.module.css";
+const poster_URL = "https://image.tmdb.org/t/p/original/";
 
 const SingleCard = ({ imgSrc, altText, openLeft, openRight }) => {
   const [popupDirection, setPopupDirection] = useState(null);
@@ -30,7 +31,11 @@ const SingleCard = ({ imgSrc, altText, openLeft, openRight }) => {
         style={{ position: "absolute" }}
         className={classes.onHover}
       />
-      <img src={imgSrc} alt={altText} className={classes["card-image"]} />
+      <img
+        src={poster_URL + imgSrc}
+        alt={altText}
+        className={classes["card-image"]}
+      />
       <MovieDescriptionPopup
         onHover={classes.onHover}
         popupDirection={popupDirection}
