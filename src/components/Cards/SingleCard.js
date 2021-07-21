@@ -4,9 +4,17 @@ import MovieDescriptionPopup from "../Popup/MovieDescriptionPopup";
 import playCircleIcon from "../../assets/playCirlce.svg";
 
 import classes from "./SignleCard.module.css";
+
 const poster_URL = "https://image.tmdb.org/t/p/original/";
 
-const SingleCard = ({ imgSrc, altText, openLeft, openRight }) => {
+const SingleCard = ({
+  imgSrc,
+  altText,
+  openLeft,
+  openRight,
+  singleMovieDataObj,
+  genreIds,
+}) => {
   const [popupDirection, setPopupDirection] = useState(null);
 
   const singleCardRef = useRef();
@@ -40,6 +48,8 @@ const SingleCard = ({ imgSrc, altText, openLeft, openRight }) => {
         onHover={classes.onHover}
         popupDirection={popupDirection}
         openLeft={openLeft}
+        singleMovieDataObj={singleMovieDataObj}
+        genreIds={genreIds}
       />
     </div>
   );

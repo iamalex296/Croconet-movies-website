@@ -1,9 +1,8 @@
 .openLeft {
   color: white;
-  background-color: #47576d;
-  min-height: 200px;
+  background-color: #1b1e20;
+  min-height: 150px;
   display: flex;
-  width: 400px;
   border-radius: 7px;
   display: none;
   position: absolute;
@@ -16,10 +15,9 @@
 
 .openRight {
   color: white;
-  background-color: #47576d;
-  min-height: 200px;
+  background-color: #1b1e20;
+  min-height: 150px;
   display: flex;
-  width: 400px;
   border-radius: 7px;
   display: none;
   position: absolute;
@@ -30,10 +28,40 @@
   opacity: 0.98;
 }
 
-.popup-box div {
+.popup-box {
   display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 20px;
+  text-align: start;
+  padding: 0 20px;
+  min-width: 400px;
   max-width: 500px;
+  font-size: 14px;
+}
+
+.popup-box p {
+  margin-top: 20px;
+}
+
+.popup-box span {
+  color: #337ab7;
+  margin-right: 10px;
+}
+
+.title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(73, 73, 73);
+}
+
+.movie-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#IMDB {
+  border-radius: 3px;
+  border: 1px solid #337ab7;
+  padding: 2px;
+  color: white;
 }

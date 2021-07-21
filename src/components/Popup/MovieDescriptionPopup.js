@@ -1,25 +1,50 @@
 import React from "react";
 import classes from "./MovieDescriptionPopup.module.css";
 
+import { genres } from "../../constants/constants";
+
 const MovieDescriptionPopup = ({
   onHover,
-  title,
-  info,
-  description,
-  imdb,
   popupDirection,
   openLeft,
+  singleMovieDataObj,
+  genreIds,
 }) => {
   return (
     <div
-      className={`${classes["popup-box"]} ${onHover} ${
+      className={` ${onHover} ${
         popupDirection === openLeft ? classes.openLeft : classes.openRight
-      }`}
+      } ${classes["popup-box"]}`}
     >
-      <div>{title}text</div>
-      <div>{info}text</div>
-      <div>{description}text</div>
-      <div>{imdb}text</div>
+      <div>
+        <p className={classes.title}>{singleMovieDataObj.title}</p>
+        <p>
+          <span>გამოშვების თარიღი:</span> {singleMovieDataObj.release_date}
+        </p>
+        <p>
+          <span>ჟანრი:</span>
+          {genreIds.map((genre_id) =>
+            genres.map(
+              (genre) =>
+                genre.id === genre_id && (
+                  <span style={{ color: "white" }} key={genre.id}>
+                    {genre.name},
+                  </span>
+                )
+            )
+          )}
+        </p>
+      </div>
+      <div>
+        <p className={classes["movie-description"]}>
+          <span>მოკლე აღწერა:</span>
+          {singleMovieDataObj.overview}
+        </p>
+        <p>
+          <span id={classes.IMDB}>IMDB</span>
+          {singleMovieDataObj.vote_average}
+        </p>
+      </div>
     </div>
   );
 };

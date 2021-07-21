@@ -14,21 +14,27 @@ const Cards = ({ title, moviesData, sliceLastIndex, id }) => {
     });
   }, [windowInnerWidth]);
 
+  // console.log("moviesData", moviesData);
+
   return (
     <>
       <ContentContainer key={id} id={id} title={title}>
         <div className={classes["cards-container"]}>
-          {moviesData.results.slice(0, sliceLastIndex).map((item) => (
-            <>
-              <SingleCard
-                key={item.id}
-                imgSrc={item.poster_path}
-                altText={item.id}
-                openLeft={classes["left-position"]}
-                operRight={classes["right-position"]}
-              />
-            </>
-          ))}
+          {moviesData.results
+            .slice(0, sliceLastIndex)
+            .map((singleMovieDataObj) => (
+              <>
+                <SingleCard
+                  key={singleMovieDataObj.id}
+                  imgSrc={singleMovieDataObj.poster_path}
+                  altText={singleMovieDataObj.id}
+                  openLeft={classes["left-position"]}
+                  operRight={classes["right-position"]}
+                  singleMovieDataObj={singleMovieDataObj}
+                  genreIds={singleMovieDataObj.genre_ids}
+                />
+              </>
+            ))}
         </div>
       </ContentContainer>
     </>
