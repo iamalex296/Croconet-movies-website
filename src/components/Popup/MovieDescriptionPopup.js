@@ -42,7 +42,7 @@ const MovieDescriptionPopup = ({
         </p>
         <p>
           <span id={classes.IMDB}>IMDB</span>
-          {singleMovieDataObj.vote_average}
+          {singleMovieDataObj.vote_average.toFixed(1)}
         </p>
       </div>
     </div>

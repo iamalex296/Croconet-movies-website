@@ -3,6 +3,7 @@
   width: 200px;
   cursor: pointer;
   margin-top: 5px;
+  margin-bottom: 5px;
   position: relative;
   display: flex;
   align-items: center;
