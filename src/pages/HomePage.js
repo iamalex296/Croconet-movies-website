@@ -1,6 +1,6 @@
 import React from "react";
 
-import ContentLayout from "../components/Layout/ContentLayout";
+import HomePageContentLayout from "../components/Layout/HomePageContentLayout";
 
 const HomePage = ({
   popularMovies,
@@ -9,7 +9,7 @@ const HomePage = ({
   nowplayingMovies,
 }) => {
   return (
-    <ContentLayout
+    <HomePageContentLayout
       popularMovies={popularMovies}
       topRatedMovies={topRatedMovies}
       upcomingMovies={upcomingMovies}
