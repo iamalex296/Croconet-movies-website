@@ -23,12 +23,13 @@ const MovieDescriptionPopup = ({
         </p>
         <p>
           <span>ჟანრი:</span>
-          {genreIds.map((genre_id) =>
+          {genreIds.map((genre_id, index) =>
             genres.map(
               (genre) =>
                 genre.id === genre_id && (
                   <span style={{ color: "white" }} key={genre.id}>
-                    {genre.name},
+                    {genre.name}
+                    {genreIds.length - 1 === index ? null : ","}
                   </span>
                 )
             )
