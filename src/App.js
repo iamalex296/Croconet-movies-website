@@ -5,6 +5,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import MoviesPage from "./pages/MoviesPage";
+import SignleMoviePage from "./pages/SignleMoviePage";
 import SeriesPage from "./pages/SeriesPage";
 import PopularMoviesPage from "./pages/PopularMoviesPage";
 import RegistrationPage from "./pages/RegistrationPage";
@@ -111,8 +112,12 @@ function App() {
           <TrailersPage />
         </Route>
 
-        <Route path="/movies">
+        <Route path="/movies" exact>
           <MoviesPage />
+        </Route>
+
+        <Route path="/movies/:movieId">
+          <SignleMoviePage />
         </Route>
 
         <Route path="/series">
@@ -125,6 +130,10 @@ function App() {
 
         <Route path="/registration">
           <RegistrationPage />
+        </Route>
+
+        <Route path="*">
+          <Redirect to="/home" />
         </Route>
       </Switch>
       <Footer />

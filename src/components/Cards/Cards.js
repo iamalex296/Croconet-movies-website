@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import SingleCard from "./SingleCard";
 import ContentContainer from "../../UI/ContentContainer";
 
 import classes from "./Cards.module.css";
 
-const Cards = ({ title, moviesData, sliceLastIndex, id }) => {
+const Cards = ({ title, moviesData, sliceLastIndex, id, linkPath }) => {
   const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
 
   React.useEffect(() => {
@@ -14,11 +16,12 @@ const Cards = ({ title, moviesData, sliceLastIndex, id }) => {
     });
   }, [windowInnerWidth]);
 
-  // console.log("moviesData", moviesData);
-
+  console.log("moviesData", moviesData);
+  // console.log("link", linkPath);
   return (
     <>
       <ContentContainer
+        linkPath={linkPath}
         key={id}
         id={id}
         title={title}
@@ -28,7 +31,7 @@ const Cards = ({ title, moviesData, sliceLastIndex, id }) => {
           {moviesData.results
             .slice(0, sliceLastIndex)
             .map((singleMovieDataObj) => (
-              <>
+              <Link to={`/movies/${singleMovieDataObj.id}`}>
                 <SingleCard
                   key={singleMovieDataObj.id}
                   imgSrc={singleMovieDataObj.poster_path}
@@ -38,7 +41,7 @@ const Cards = ({ title, moviesData, sliceLastIndex, id }) => {
                   singleMovieDataObj={singleMovieDataObj}
                   genreIds={singleMovieDataObj.genre_ids}
                 />
-              </>
+              </Link>
             ))}
         </div>
       </ContentContainer>

@@ -29,7 +29,7 @@ const MovieDescriptionPopup = ({
                 genre.id === genre_id && (
                   <span style={{ color: "white" }} key={genre.id}>
                     {genre.name}
-                    {genreIds.length - 1 === index ? null : ","}
+                    {genreIds.length - 1 !== index && ","}
                   </span>
                 )
             )

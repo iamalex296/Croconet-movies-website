@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import CardsWrapperContainer from "./CardsWrapperContainer";
 import Icon from "./Icon";
 
@@ -8,7 +10,14 @@ import classes from "./ContentContainer.module.css";
 
 import BackgroundVideo from "../videos/backgroundVideo.mp4";
 
-const ContentContainer = ({ children, id, title, sliceLastIndex }) => {
+const ContentContainer = ({
+  children,
+  id,
+  title,
+  sliceLastIndex,
+  linkPath,
+}) => {
+  // console.log("link", linkPath);
   return (
     <div
       className={`
@@ -27,7 +36,7 @@ const ContentContainer = ({ children, id, title, sliceLastIndex }) => {
           {title}
           <div style={{ display: "flex", alignItems: "center" }}>
             {sliceLastIndex > 12 ? null : (
-              <>
+              <Link to={`${linkPath}`} className={classes.linkText}>
                 <span>ყველა</span>
                 <Icon
                   src={Arrow}
@@ -40,7 +49,7 @@ const ContentContainer = ({ children, id, title, sliceLastIndex }) => {
                     borderRadius: "5px",
                   }}
                 />
-              </>
+              </Link>
             )}
           </div>
         </div>

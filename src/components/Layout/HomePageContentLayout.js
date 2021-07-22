@@ -14,6 +14,7 @@ const HomePageContentLayout = ({
         id={1}
         title="პოპულარული"
         sliceLastIndex="6"
+        linkPath="/popular"
       />
 
       <Cards
@@ -21,6 +22,7 @@ const HomePageContentLayout = ({
         moviesData={topRatedMovies}
         title="მაღალრეიტინგლი"
         sliceLastIndex="6"
+        linkPath="/movies"
       />
 
       <Cards
@@ -28,6 +30,7 @@ const HomePageContentLayout = ({
         moviesData={upcomingMovies}
         title="პრემიერა"
         sliceLastIndex="12"
+        linkPath="/trailers"
       />
 
       <Cards
@@ -35,6 +38,7 @@ const HomePageContentLayout = ({
         moviesData={nowplayingMovies}
         title="ახალი ფილმები"
         sliceLastIndex="12"
+        linkPath="/series"
       />
     </>
   );

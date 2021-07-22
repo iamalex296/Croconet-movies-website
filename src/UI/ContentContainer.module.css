@@ -31,12 +31,27 @@
   top: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
 }
 
 .title {
   display: flex;
   justify-content: space-between;
   margin: 0px 15px 30px 15px;
+  z-index: 10;
+}
+
+.linkText {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.linkText:hover {
+  color: #86c8eb;
 }
 
 .background-video {
