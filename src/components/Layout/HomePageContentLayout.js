@@ -34,7 +34,7 @@ const HomePageContentLayout = ({
         id={4}
         moviesData={nowplayingMovies}
         title="ახალი ფილმები"
-        sliceLastIndex="18"
+        sliceLastIndex="12"
       />
     </>
   );

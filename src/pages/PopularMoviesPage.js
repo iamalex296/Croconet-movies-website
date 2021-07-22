@@ -1,7 +1,12 @@
 import React from "react";
+import PopularMoviesPageContentLayout from "../components/Layout/PopularMoviesPageContentLayout";
 
-const PopularMoviesPage = () => {
-  return <div style={{ height: "900px" }}>Popular Movies</div>;
+const PopularMoviesPage = ({ popularPageMoviesData }) => {
+  return (
+    <PopularMoviesPageContentLayout
+      popularPageMoviesData={popularPageMoviesData}
+    />
+  );
 };
 
 export default PopularMoviesPage;

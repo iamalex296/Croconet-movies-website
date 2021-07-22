@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import {
-  Route,
-  BrowserRouter as Router,
-  Redirect,
-  Switch,
-} from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import MoviesPage from "./pages/MoviesPage";
@@ -34,7 +29,7 @@ function App() {
   const [topRatedMovies, setTopRatedMovies] = useState(null);
   const [upcomingMovies, setUpcomingMovies] = useState(null);
   const [nowplayingMovies, setNowplayingMovies] = useState(null);
-
+  const [popularPageMoviesData, setPopularPageMoviesData] = useState(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -42,8 +37,9 @@ function App() {
       await axios
         .get(popularMovies_URL)
         .then((response) => {
-          // console.log('popularMoviesData', response.data);
+          console.log("popularMoviesData", response.data);
           setPopularMovies(response.data);
+          setPopularPageMoviesData(response.data);
         })
         .catch((error) => setError(error));
     };
@@ -96,44 +92,42 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Switch>
-          <Route path="/" exact>
-            <Redirect to="/home" />
-          </Route>
+      <Header />
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/home" />
+        </Route>
 
-          <Route path="/home" exact>
-            <HomePage
-              popularMovies={popularMovies}
-              topRatedMovies={topRatedMovies}
-              upcomingMovies={upcomingMovies}
-              nowplayingMovies={nowplayingMovies}
-            />
-          </Route>
+        <Route path="/home" exact>
+          <HomePage
+            popularMovies={popularMovies}
+            topRatedMovies={topRatedMovies}
+            upcomingMovies={upcomingMovies}
+            nowplayingMovies={nowplayingMovies}
+          />
+        </Route>
 
-          <Route path="/trailers">
-            <TrailersPage />
-          </Route>
+        <Route path="/trailers">
+          <TrailersPage />
+        </Route>
 
-          <Route path="/movies">
-            <MoviesPage />
-          </Route>
+        <Route path="/movies">
+          <MoviesPage />
+        </Route>
 
-          <Route path="/series">
-            <SeriesPage />
-          </Route>
+        <Route path="/series">
+          <SeriesPage />
+        </Route>
 
-          <Route path="/popular">
-            <PopularMoviesPage />
-          </Route>
+        <Route path="/popular">
+          <PopularMoviesPage popularPageMoviesData={popularPageMoviesData} />
+        </Route>
 
-          <Route path="/registration">
-            <RegistrationPage />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+        <Route path="/registration">
+          <RegistrationPage />
+        </Route>
+      </Switch>
+      <Footer />
     </div>
   );
 }

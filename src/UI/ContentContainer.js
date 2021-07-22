@@ -8,7 +8,7 @@ import classes from "./ContentContainer.module.css";
 
 import BackgroundVideo from "../videos/backgroundVideo.mp4";
 
-const ContentContainer = ({ children, id, title }) => {
+const ContentContainer = ({ children, id, title, sliceLastIndex }) => {
   return (
     <div
       className={`
@@ -26,18 +26,22 @@ const ContentContainer = ({ children, id, title }) => {
         <div className={classes.title}>
           {title}
           <div style={{ display: "flex", alignItems: "center" }}>
-            <span>ყველა</span>
-            <Icon
-              src={Arrow}
-              alt="arrowIcon"
-              style={{
-                height: "15px",
-                width: "15px",
-                padding: "0px",
-                marginLeft: "3px",
-                borderRadius: "5px",
-              }}
-            />
+            {sliceLastIndex > 12 ? null : (
+              <>
+                <span>ყველა</span>
+                <Icon
+                  src={Arrow}
+                  alt="arrowIcon"
+                  style={{
+                    height: "15px",
+                    width: "15px",
+                    padding: "0px",
+                    marginLeft: "3px",
+                    borderRadius: "5px",
+                  }}
+                />
+              </>
+            )}
           </div>
         </div>
         <div>{children}</div>

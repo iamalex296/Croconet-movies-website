@@ -18,7 +18,12 @@ const Cards = ({ title, moviesData, sliceLastIndex, id }) => {
 
   return (
     <>
-      <ContentContainer key={id} id={id} title={title}>
+      <ContentContainer
+        key={id}
+        id={id}
+        title={title}
+        sliceLastIndex={sliceLastIndex}
+      >
         <div className={classes["cards-container"]}>
           {moviesData.results
             .slice(0, sliceLastIndex)
