@@ -16,7 +16,7 @@ const Cards = ({ title, moviesData, sliceLastIndex, id, linkPath }) => {
     });
   }, [windowInnerWidth]);
 
-  console.log("moviesData", moviesData);
+  // console.log("moviesData", moviesData);
   // console.log("link", linkPath);
   return (
     <>

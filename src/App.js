@@ -38,7 +38,7 @@ function App() {
       await axios
         .get(popularMovies_URL)
         .then((response) => {
-          console.log("popularMoviesData", response.data);
+          // console.log("popularMoviesData", response.data);
           setPopularMovies(response.data);
           setPopularPageMoviesData(response.data);
         })
@@ -117,7 +117,7 @@ function App() {
         </Route>
 
         <Route path="/movies/:movieId">
-          <SignleMoviePage />
+          <SignleMoviePage API_key={API_key} />
         </Route>
 
         <Route path="/series">
