@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import Template from "../Templates/Template";
+import Loader from "../../UI/Loader";
 // import classes from "./SingleMoviePageLayout.module.css";
 
 const poster_URL = "https://image.tmdb.org/t/p/original";
@@ -81,7 +82,7 @@ const SignleMoviePageLayout = ({ setError, API_key }) => {
       }}
     >
       {isLoading ? (
-        "Loading..."
+        <Loader />
       ) : (
         <>
           <div
