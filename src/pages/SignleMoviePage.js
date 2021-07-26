@@ -37,7 +37,7 @@ const SignleMoviePage = ({ API_key, setError }) => {
           .then((response) => {
             // console.log("movieVideoData", response.data);
             if (response.data) {
-              if (response.data.results.length > 0) {
+              if (response.data.results[0]) {
                 let video = [];
                 const singleVideo = response.data.results[0];
                 video.push(
@@ -55,7 +55,7 @@ const SignleMoviePage = ({ API_key, setError }) => {
                 setIsLoading(false);
                 setMovieVideo(video);
               } else {
-                return;
+                setIsLoading(false);
               }
             }
           })
@@ -68,7 +68,25 @@ const SignleMoviePage = ({ API_key, setError }) => {
   return (
     <SingleMoviePageLayout
       singleMovieDetailsObj={singleMovieDetailsObj}
-      movieVideo={movieVideo}
+      movieVideo={
+        movieVideo ? (
+          movieVideo
+        ) : (
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "36px",
+              backgroundColor: "#0083CA",
+              padding: "50px",
+              borderRadius: "5px",
+              opacity: "0.9",
+              margin: "150px auto",
+            }}
+          >
+            ფილმი მალე დაემატება...
+          </p>
+        )
+      }
       isLoading={isLoading}
     />
   );
