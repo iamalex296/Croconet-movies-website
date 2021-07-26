@@ -44,6 +44,7 @@ function App() {
         })
         .catch((error) => setError(error));
     };
+
     getPopularMoviesData();
   }, []);
 
@@ -57,6 +58,7 @@ function App() {
         })
         .catch((error) => setError(error));
     };
+
     getTopRatedMoviesData();
   }, []);
 
@@ -70,6 +72,7 @@ function App() {
         })
         .catch((error) => setError(error));
     };
+
     getUpcomingMoviesData();
   }, []);
 
@@ -117,7 +120,7 @@ function App() {
         </Route>
 
         <Route path="/movies/:movieId">
-          <SignleMoviePage API_key={API_key} />
+          <SignleMoviePage API_key={API_key} setError={setError} />
         </Route>
 
         <Route path="/series">

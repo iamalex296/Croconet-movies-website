@@ -31,7 +31,10 @@ const Cards = ({ title, moviesData, sliceLastIndex, id, linkPath }) => {
           {moviesData.results
             .slice(0, sliceLastIndex)
             .map((singleMovieDataObj) => (
-              <Link to={`/movies/${singleMovieDataObj.id}`}>
+              <Link
+                to={`/movies/${singleMovieDataObj.id}`}
+                key={singleMovieDataObj.id}
+              >
                 <SingleCard
                   key={singleMovieDataObj.id}
                   imgSrc={singleMovieDataObj.poster_path}
