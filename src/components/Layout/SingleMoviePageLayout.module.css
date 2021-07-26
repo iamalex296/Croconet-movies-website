@@ -1,0 +1,81 @@
+.template-container {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.main-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(73, 73, 73);
+}
+
+.video-container {
+  width: 70%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.information-message {
+  text-align: center;
+  font-size: 36px;
+  background-color: #0083ca;
+  padding: 50px;
+  border-radius: 5px;
+  opacity: 0.9;
+  margin: 150px auto;
+}
+
+.description-container {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  margin: 30px 0px;
+}
+
+.description-box {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #1b1e20;
+  align-items: stretch;
+  padding: 0px 20px;
+  border-radius: 5px;
+}
+
+.description-container span {
+  color: #337ab7;
+  margin-right: 10px;
+}
+
+.movie-poster {
+  height: 100%;
+  width: 35%;
+  border-radius: 5px;
+}
+
+#genre-name {
+  color: white;
+}
+
+#IMDB {
+  border-radius: 3px;
+  border: 1px solid #337ab7;
+  padding: 2px;
+  color: white;
+}

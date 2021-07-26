@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 import Template from "../Templates/Template";
 import Loader from "../../UI/Loader";
-// import classes from "./SingleMoviePageLayout.module.css";
+import classes from "./SingleMoviePageLayout.module.css";
 
 const poster_URL = "https://image.tmdb.org/t/p/original";
 
@@ -25,7 +25,7 @@ const SignleMoviePageLayout = ({ setError, API_key }) => {
       await axios
         .get(singleMovie_URL)
         .then((response) => {
-          // console.log("singleMovieDetailsData", response.data);
+          console.log("singleMovieDetailsData", response.data);
           setSingleMovieDetailObj(response.data);
         })
         .catch((error) => setError(error));
@@ -70,27 +70,14 @@ const SignleMoviePageLayout = ({ setError, API_key }) => {
   }, [movieVideo_URL, setError, singleMovieDetailsObj]);
 
   return (
-    <Template
-      style={{
-        fontSize: "14px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "0",
-        margin: "0",
-        marginBottom: "20px",
-      }}
-    >
+    <Template styleTemplateClass={classes["template-container"]}>
       {isLoading ? (
         <Loader />
       ) : (
         <>
           <div
+            className={classes["main-container"]}
             style={{
-              boxSizing: "border-box",
-              width: "100%",
-              height: "100%",
-              padding: "0px 30px",
               backgroundImage:
                 "url(" +
                 poster_URL +
@@ -98,49 +85,22 @@ const SignleMoviePageLayout = ({ setError, API_key }) => {
                   singleMovieDetailsObj && singleMovieDetailsObj.backdrop_path
                 }` +
                 ")",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
-            <div
-              style={{
-                width: "70%",
-                heigth: "100%",
-                margin: "0",
-                padding: "0",
-              }}
-            >
+            <div className={classes["video-container"]}>
               {movieVideo ? (
                 movieVideo
               ) : (
-                <p
-                  style={{
-                    textAlign: "center",
-                    fontSize: "36px",
-                    backgroundColor: "#0083CA",
-                    padding: "50px",
-                    borderRadius: "5px",
-                    opacity: "0.9",
-                    margin: "150px auto",
-                  }}
-                >
+                <p className={classes["information-message"]}>
                   ფილმი მალე დაემატება...
                 </p>
               )}
             </div>
           </div>
 
-          <div
-            style={{
-              width: "70%",
-              height: "90%",
-              display: "flex",
-              marginTop: "50px",
-            }}
-          >
+          <div style={{}} className={classes["description-container"]}>
             <img
-              style={{ height: "100%", width: "30%", borderRadius: "5px" }}
+              className={classes["movie-poster"]}
               src={
                 poster_URL +
                 `${
@@ -150,45 +110,54 @@ const SignleMoviePageLayout = ({ setError, API_key }) => {
               }
               alt="moviePoster"
             />
-            <div
-              style={{
-                marginLeft: "30px",
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                background: "#1b1e20",
-                alignItems: "stretch",
-                padding: "20px",
-                borderRadius: "5px",
-              }}
-            >
-              <p>
+            <div className={classes["description-box"]}>
+              <p className={classes.title}>
                 {singleMovieDetailsObj.title && singleMovieDetailsObj.title}
               </p>
               <p>
-                ენა:{" "}
+                <span>ენა:</span>
                 {singleMovieDetailsObj.original_language &&
                   singleMovieDetailsObj.original_language.toUpperCase()}
               </p>
               <p>
-                გამოშვების წელი:{" "}
+                <span>გამოშვების წელი:</span>
                 {singleMovieDetailsObj.release_date &&
                   singleMovieDetailsObj.release_date.slice(0, 4)}
               </p>
               <p>
-                ხანგრძლივობა:{" "}
-                {singleMovieDetailsObj.runtime && singleMovieDetailsObj.runtime}{" "}
+                <span>ხანგრძლივობა:</span>
+                {singleMovieDetailsObj.runtime &&
+                  singleMovieDetailsObj.runtime}{" "}
                 წუთი{" "}
               </p>
               <p>
-                შემოსავალი:{" "}
+                <span>ბიუჯეტი:</span>
+                {singleMovieDetailsObj.budget && singleMovieDetailsObj.budget}$
+              </p>
+              <p>
+                <span>შემოსავალი:</span>
                 {singleMovieDetailsObj.revenue && singleMovieDetailsObj.revenue}
                 $
               </p>
               <p>
-                აღწერა:{" "}
+                <span>ჟანრი:</span>
+                {singleMovieDetailsObj.genres &&
+                  singleMovieDetailsObj.genres.map((genre, index) => (
+                    <span id={classes["genre-name"]} key={genre.id}>
+                      {genre.name}
+                      {","}
+                    </span>
+                  ))}
+              </p>
+              <p>
+                <span>აღწერა:</span>
                 {singleMovieDetailsObj.overview &&
                   singleMovieDetailsObj.overview}
+              </p>
+              <p>
+                <span id={classes.IMDB}>IMDB</span>
+                {singleMovieDetailsObj.vote_average &&
+                  singleMovieDetailsObj.vote_average.toFixed(1)}
               </p>
             </div>
           </div>
