@@ -17,7 +17,7 @@ import MoviesGenrePopup from "../Popup/MoviesGenrePopup";
 
 import classes from "./Header.module.css";
 
-const Header = () => {
+const Header = ({ API_key, setError }) => {
   const [toggleSearchInput, setToggleSearchInput] = useState(false);
   const [toggleLoginRegisterPopup, setToggleLoginRegisterPopup] = useState(
     false
@@ -108,7 +108,9 @@ const Header = () => {
             justifyContent: "space-between",
           }}
         >
-          {toggleSearchInput && <SearchInput />}
+          {toggleSearchInput && (
+            <SearchInput API_key={API_key} setError={setError} />
+          )}
 
           <Icon
             src={SearchIcon}

@@ -96,7 +96,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header API_key={API_key} setError={setError} />
       <Switch>
         <Route path="/" exact>
           <Redirect to="/home" />
