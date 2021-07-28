@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import SingleCard from "../Cards/SingleCard";
-
 import classes from "./SearchedMoviesPopup.module.css";
 
 const poster_URL = "https://image.tmdb.org/t/p/original/";
