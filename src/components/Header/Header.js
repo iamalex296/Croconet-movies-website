@@ -109,7 +109,11 @@ const Header = ({ API_key, setError }) => {
           }}
         >
           {toggleSearchInput && (
-            <SearchInput API_key={API_key} setError={setError} />
+            <SearchInput
+              API_key={API_key}
+              setError={setError}
+              setToggleSearchInput={setToggleSearchInput}
+            />
           )}
 
           <Icon

@@ -1,7 +1,36 @@
-.left-position {
-  left: 2000px;
+.searched-movies-main-container {
+  border-top: 1px solid rgb(73, 73, 73);
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(6, 130px);
+  grid-template-rows: repeat(2, 170);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 20px 50px;
+  top: 100%;
+  z-index: 10000;
+  right: 100%;
+  background-color: rgba(30, 36, 44, 0.9);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
-.right-position {
-  right: 200px;
+.card-poster {
+  height: 170px;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.card-poster-title {
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  font-size: 12px;
+  transition-duration: 0.3s;
+}
+
+.card-poster-title:hover {
+  opacity: 0.7;
+  color: #86c8eb;
 }

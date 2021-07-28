@@ -25,3 +25,15 @@
     width: 920px;
   }
 }
+
+@media (min-width: 1801px) {
+  .input {
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .input {
+    width: 920px;
+  }
+}

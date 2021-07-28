@@ -1,47 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import SingleCard from "../Cards/SingleCard";
+// import SingleCard from "../Cards/SingleCard";
 
 import classes from "./SearchedMoviesPopup.module.css";
 
-const SearchedMoviesPopup = ({ searchedMovies }) => {
+const poster_URL = "https://image.tmdb.org/t/p/original/";
+
+const SearchedMoviesPopup = ({
+  searchedMovies,
+  setToggleSearchInput,
+  setShowMoviesPopup,
+}) => {
   // console.log("searchedMoviesData", searchedMovies);
+
+  const toggleSearchPopup = () => {
+    setToggleSearchInput(false);
+    setShowMoviesPopup(false);
+  };
+
   return (
-    <div
-      style={{
-        borderTop: `1px solid rgb(${73}, ${73}, ${73})`,
-        position: "absolute",
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 230px)",
-        gridTemplaterows: "repeat(3, 280)",
-        // gridColumnGap: "3px",
-        gridRowGap: "10px",
-        padding: "10px 0px 10px 20px",
-        top: "100%",
-        zIndex: "10000",
-        right: "100%",
-        maxWidth: "910px",
-        backgroundColor: `rgba(${30}, ${36}, ${44}, ${0.9})`,
-        borderBottomLeftRadius: "5px",
-        borderBottomRightRadius: "5px",
-      }}
-    >
+    <div className={classes["searched-movies-main-container"]}>
       {searchedMovies.map((searchedSingleMovie) => (
         <Link
           to={`/movies/${searchedSingleMovie.id}`}
           key={searchedSingleMovie.id}
-          style={{ paddingLeft: "6px" }}
+          className={classes["card-poster-title"]}
         >
-          <SingleCard
+          <img
+            className={classes["card-poster"]}
+            src={poster_URL + searchedSingleMovie.poster_path}
+            alt="poster"
             key={searchedSingleMovie.id}
-            imgSrc={searchedSingleMovie.poster_path}
-            altText={searchedSingleMovie.id}
-            openLeft={classes["left-position"]}
-            operRight={classes["right-position"]}
-            singleMovieDataObj={searchedSingleMovie}
-            genreIds={searchedSingleMovie.genre_ids}
+            onClick={toggleSearchPopup}
           />
+          <p>{searchedSingleMovie.title}</p>
         </Link>
       ))}
     </div>

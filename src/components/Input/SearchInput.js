@@ -4,10 +4,10 @@ import axios from "axios";
 import classes from "./SearchInput.module.css";
 import SearchedMoviesPopup from "../Popup/SearchedMoviesPopup";
 
-const SearchInput = ({ API_key, setError }) => {
+const SearchInput = ({ API_key, setError, setToggleSearchInput }) => {
   const [enteredMovieValue, setEnteredMovieValue] = useState("");
   const [searchedMovies, setSearchedMovies] = useState([]);
-  const [showMoviesPopup, setshowMoviesPopup] = useState(false);
+  const [showMoviesPopup, setShowMoviesPopup] = useState(false);
   // console.log("enteredMovieValue", enteredMovieValue);
 
   useEffect(() => {
@@ -20,14 +20,14 @@ const SearchInput = ({ API_key, setError }) => {
             )
             .then((response) => {
               // console.log("searchedMovieData", response.data.results);
-              setSearchedMovies(response.data.results.slice(0, 8));
+              setSearchedMovies(response.data.results.slice(0, 12));
               enteredMovieValue !== ""
-                ? setshowMoviesPopup(true)
-                : setshowMoviesPopup(false);
+                ? setShowMoviesPopup(true)
+                : setShowMoviesPopup(false);
             })
             .catch((error) => setError(error));
         }
-      }, 2000);
+      }, 1000);
       return () => clearInterval(filteredMovies);
     };
 
@@ -44,7 +44,11 @@ const SearchInput = ({ API_key, setError }) => {
       />
 
       {showMoviesPopup && (
-        <SearchedMoviesPopup searchedMovies={searchedMovies} />
+        <SearchedMoviesPopup
+          setToggleSearchInput={setToggleSearchInput}
+          setShowMoviesPopup={setShowMoviesPopup}
+          searchedMovies={searchedMovies}
+        />
       )}
     </>
   );
