@@ -10,7 +10,7 @@
   top: 100%;
   z-index: 10000;
   right: 100%;
-  background-color: rgba(30, 36, 44, 0.9);
+  background-color: rgb(204, 204, 204);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }

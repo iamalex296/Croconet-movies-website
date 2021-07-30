@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Backdrop from "../Backdrop/Backdrop";
+
 import classes from "./SearchedMoviesPopup.module.css";
 
 const poster_URL = "https://image.tmdb.org/t/p/original/";
@@ -35,6 +37,10 @@ const SearchedMoviesPopup = ({
           <p>{searchedSingleMovie.title}</p>
         </Link>
       ))}
+      <Backdrop
+        setToggleSearchInput={setToggleSearchInput}
+        setShowMoviesPopup={setShowMoviesPopup}
+      />
     </div>
   );
 };
