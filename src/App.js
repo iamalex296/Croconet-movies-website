@@ -22,13 +22,11 @@ const API_key = "a7800c107865c419bc37a1f55d4993ae";
 
 const popularMovies_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_key}`;
 const topRatedMovies_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_key}`;
-const upcomingMovies_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_key}`;
 const nowplayingMovies_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_key}`;
 
 function App() {
   const [popularMovies, setPopularMovies] = useState(null);
   const [topRatedMovies, setTopRatedMovies] = useState(null);
-  const [upcomingMovies, setUpcomingMovies] = useState(null);
   const [nowplayingMovies, setNowplayingMovies] = useState(null);
   const [popularPageMoviesData, setPopularPageMoviesData] = useState(null);
   const [error, setError] = useState(false);
@@ -63,20 +61,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const getUpcomingMoviesData = async () => {
-      await axios
-        .get(upcomingMovies_URL)
-        .then((response) => {
-          // console.log("upcomingMoviesData", response.data);
-          setUpcomingMovies(response.data);
-        })
-        .catch((error) => setError(error));
-    };
-
-    getUpcomingMoviesData();
-  }, []);
-
-  useEffect(() => {
     const getNowplayingData = async () => {
       await axios
         .get(nowplayingMovies_URL)
@@ -91,8 +75,7 @@ function App() {
 
   if (error) return `ERROR: ${error.message}`;
 
-  if (!topRatedMovies || !upcomingMovies || !popularMovies || !nowplayingMovies)
-    return null;
+  if (!topRatedMovies || !popularMovies || !nowplayingMovies) return null;
 
   return (
     <div className="App">
@@ -106,7 +89,6 @@ function App() {
           <HomePage
             popularMovies={popularMovies}
             topRatedMovies={topRatedMovies}
-            upcomingMovies={upcomingMovies}
             nowplayingMovies={nowplayingMovies}
           />
         </Route>

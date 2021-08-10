@@ -28,24 +28,25 @@ const Cards = ({ title, moviesData, sliceLastIndex, id, linkPath }) => {
         sliceLastIndex={sliceLastIndex}
       >
         <div className={classes["cards-container"]}>
-          {moviesData.results
-            .slice(0, sliceLastIndex)
-            .map((singleMovieDataObj) => (
-              <Link
-                to={`/movies/${singleMovieDataObj.id}`}
-                key={singleMovieDataObj.id}
-              >
-                <SingleCard
+          {moviesData &&
+            moviesData.results
+              .slice(0, sliceLastIndex)
+              .map((singleMovieDataObj) => (
+                <Link
+                  to={`/movies/${singleMovieDataObj.id}`}
                   key={singleMovieDataObj.id}
-                  imgSrc={singleMovieDataObj.poster_path}
-                  altText={singleMovieDataObj.id}
-                  openLeft={classes["left-position"]}
-                  operRight={classes["right-position"]}
-                  singleMovieDataObj={singleMovieDataObj}
-                  genreIds={singleMovieDataObj.genre_ids}
-                />
-              </Link>
-            ))}
+                >
+                  <SingleCard
+                    key={singleMovieDataObj.id}
+                    imgSrc={singleMovieDataObj.poster_path}
+                    altText={singleMovieDataObj.id}
+                    openLeft={classes["left-position"]}
+                    operRight={classes["right-position"]}
+                    singleMovieDataObj={singleMovieDataObj}
+                    genreIds={singleMovieDataObj.genre_ids}
+                  />
+                </Link>
+              ))}
         </div>
       </ContentContainer>
     </>
