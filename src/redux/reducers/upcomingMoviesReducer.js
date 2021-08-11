@@ -11,7 +11,6 @@ const initialState = {
 };
 
 const upcomingMoviesReducer = (state = initialState, action) => {
-  // debugger;
   switch (action.type) {
     case FETCH_UPCOMING_MOVIES_REQUEST:
       return {

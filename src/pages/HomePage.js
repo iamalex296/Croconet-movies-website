@@ -6,7 +6,7 @@ const HomePage = ({ popularMovies, topRatedMovies, nowplayingMovies }) => {
   return (
     <HomePageContentLayout
       popularMovies={popularMovies}
-      topRatedMovies={topRatedMovies}
+      // topRatedMovies={topRatedMovies}
       nowplayingMovies={nowplayingMovies}
     />
   );

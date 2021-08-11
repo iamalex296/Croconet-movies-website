@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchUpcomingMovies } from "../../redux/actions/upcomingMoviesActions";
+import { fetchTopRatedMovies } from "../../redux/actions/topRatedMoviesActions";
 
 import Cards from "../Cards/Cards";
 
@@ -10,6 +11,7 @@ const HomePageContentLayout = ({
   nowplayingMovies,
   upcomingMovies,
   fetchUpcomingMoviesData,
+  fetchTopRatedMoviesData,
 }) => {
   // const upcomingMovies = useSelector((state) =>
   //   console.log("sls", state.upcomingMovies.upcomingMovies)
@@ -20,6 +22,10 @@ const HomePageContentLayout = ({
   useEffect(() => {
     fetchUpcomingMoviesData();
   }, [fetchUpcomingMoviesData]);
+
+  useEffect(() => {
+    fetchTopRatedMoviesData();
+  }, [fetchTopRatedMoviesData]);
 
   // console.log("de", upcomingMovies);
   // console.log("Movies-Data", upcomingMovies);
@@ -33,14 +39,18 @@ const HomePageContentLayout = ({
         sliceLastIndex="6"
         linkPath="/popular"
       />
+      {Object.keys(topRatedMovies).length ? (
+        <Cards
+          id={2}
+          moviesData={topRatedMovies}
+          title="მაღალრეიტინგლი"
+          sliceLastIndex="6"
+          linkPath="/movies"
+        />
+      ) : (
+        "Loading..."
+      )}
 
-      <Cards
-        id={2}
-        moviesData={topRatedMovies}
-        title="მაღალრეიტინგლი"
-        sliceLastIndex="6"
-        linkPath="/movies"
-      />
       {Object.keys(upcomingMovies).length ? (
         <Cards
           id={3}
@@ -68,6 +78,7 @@ const mapDispatchToProps = (dispatch) => {
   // console.log("ACTION", fetchUpcomingMovies);
   return {
     fetchUpcomingMoviesData: () => dispatch(fetchUpcomingMovies()),
+    fetchTopRatedMoviesData: () => dispatch(fetchTopRatedMovies()),
   };
 };
 
@@ -75,6 +86,7 @@ const mapStateToProps = (state) => {
   // console.log("upcomingMoviesData", state.upcomingMovies.upcomingMovies);
   return {
     upcomingMovies: state.upcomingMovies.upcomingMovies,
+    topRatedMovies: state.topRatedMovies.topRatedMovies,
   };
 };
 
