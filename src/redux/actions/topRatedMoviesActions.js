@@ -36,7 +36,7 @@ export const fetchTopRatedMovies = () => {
       .get(topRatedMovies_URL)
       .then((response) => {
         const topRatedMoviesResponseData = response.data;
-        console.log("responseTopRatedMoviesData", response.data);
+        // console.log("responseTopRatedMoviesData", response.data);
         dispatch(fetchTopRatedMoviesSuccess(topRatedMoviesResponseData));
       })
       .catch((error) => {

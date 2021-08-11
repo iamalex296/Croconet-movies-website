@@ -2,11 +2,10 @@ import React from "react";
 
 import HomePageContentLayout from "../components/Layout/HomePageContentLayout";
 
-const HomePage = ({ popularMovies, topRatedMovies, nowplayingMovies }) => {
+const HomePage = ({ popularMovies, nowplayingMovies }) => {
   return (
     <HomePageContentLayout
       popularMovies={popularMovies}
-      // topRatedMovies={topRatedMovies}
       nowplayingMovies={nowplayingMovies}
     />
   );
