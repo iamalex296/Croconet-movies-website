@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+
 import { fetchUpcomingMovies } from "../../redux/actions/upcomingMoviesActions";
 import { fetchTopRatedMovies } from "../../redux/actions/topRatedMoviesActions";
+
+import Loader from "../../UI/Loader";
 
 import Cards from "../Cards/Cards";
 
@@ -48,7 +51,7 @@ const HomePageContentLayout = ({
           linkPath="/movies"
         />
       ) : (
-        "Loading..."
+        <Loader />
       )}
 
       {Object.keys(upcomingMovies).length ? (
@@ -60,7 +63,7 @@ const HomePageContentLayout = ({
           linkPath="/trailers"
         />
       ) : (
-        "Loading..."
+        <Loader />
       )}
 
       <Cards
