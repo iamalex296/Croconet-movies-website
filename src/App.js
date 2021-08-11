@@ -56,7 +56,6 @@ function App() {
         })
         .catch((error) => setError(error));
     };
-
     getTopRatedMoviesData();
   }, []);
 
