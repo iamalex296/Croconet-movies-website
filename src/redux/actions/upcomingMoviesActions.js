@@ -36,7 +36,7 @@ export const fetchUpcomingMovies = () => {
       .get(upcomingMovies_URL)
       .then((response) => {
         const upcomingMoviesResponseData = response.data;
-        // console.log("responseData", response.data);
+        // console.log("responseUpcomingMoviesData", response.data);
         dispatch(fetchUpcomingMoviesSuccess(upcomingMoviesResponseData));
       })
       .catch((error) => {

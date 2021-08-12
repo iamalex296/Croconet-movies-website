@@ -21,11 +21,9 @@ const API_key = "a7800c107865c419bc37a1f55d4993ae";
 // const poster_URL = "https://image.tmdb.org/t/p/original/";
 
 const popularMovies_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_key}`;
-const nowplayingMovies_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_key}`;
 
 function App() {
   const [popularMovies, setPopularMovies] = useState(null);
-  const [nowplayingMovies, setNowplayingMovies] = useState(null);
   const [popularPageMoviesData, setPopularPageMoviesData] = useState(null);
   const [error, setError] = useState(false);
 
@@ -44,22 +42,9 @@ function App() {
     getPopularMoviesData();
   }, []);
 
-  useEffect(() => {
-    const getNowplayingData = async () => {
-      await axios
-        .get(nowplayingMovies_URL)
-        .then((response) => {
-          // console.log("nowPlayingMoviesData", response.data);
-          setNowplayingMovies(response.data);
-        })
-        .catch((error) => setError(error));
-    };
-    getNowplayingData();
-  }, []);
-
   if (error) return `ERROR: ${error.message}`;
 
-  if (!popularMovies || !nowplayingMovies) return null;
+  if (!popularMovies) return null;
 
   return (
     <div className="App">
@@ -70,10 +55,7 @@ function App() {
         </Route>
 
         <Route path="/home" exact>
-          <HomePage
-            popularMovies={popularMovies}
-            nowplayingMovies={nowplayingMovies}
-          />
+          <HomePage popularMovies={popularMovies} />
         </Route>
 
         <Route path="/trailers">
