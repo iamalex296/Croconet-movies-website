@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchUpcomingMovies } from "../../redux/actions/upcomingMoviesActions";
 import { fetchTopRatedMovies } from "../../redux/actions/topRatedMoviesActions";
 import { fetchNowPlayingMovies } from "../../redux/actions/nowPlayingMoviesActions";
+import { fetchPopularMovies } from "../../redux/actions/popularMoviesActions";
 
 import Loader from "../../UI/Loader";
 
@@ -17,6 +18,7 @@ const HomePageContentLayout = ({
   fetchUpcomingMoviesData,
   fetchTopRatedMoviesData,
   fetchNowPlayingMoviesData,
+  fetchPopularMoviesData,
 }) => {
   // const upcomingMovies = useSelector((state) =>
   //   console.log("sls", state.upcomingMovies.upcomingMovies)
@@ -36,18 +38,26 @@ const HomePageContentLayout = ({
     fetchNowPlayingMoviesData();
   }, [fetchNowPlayingMoviesData]);
 
+  useEffect(() => {
+    fetchPopularMoviesData();
+  }, [fetchPopularMoviesData]);
+
   // console.log("upcomingMovies", upcomingMovies);
-  // console.log("Movies-Data", upcomingMovies);
 
   return (
     <>
-      <Cards
-        moviesData={popularMovies}
-        id={1}
-        title="პოპულარული"
-        sliceLastIndex="6"
-        linkPath="/popular"
-      />
+      {Object.keys(popularMovies).length ? (
+        <Cards
+          moviesData={popularMovies}
+          id={1}
+          title="პოპულარული"
+          sliceLastIndex="6"
+          linkPath="/popular"
+        />
+      ) : (
+        <Loader />
+      )}
+
       {Object.keys(topRatedMovies).length ? (
         <Cards
           id={2}
@@ -71,6 +81,7 @@ const HomePageContentLayout = ({
       ) : (
         <Loader />
       )}
+
       {Object.keys(nowPlayingMovies).length ? (
         <Cards
           id={4}
@@ -92,6 +103,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchUpcomingMoviesData: () => dispatch(fetchUpcomingMovies()),
     fetchTopRatedMoviesData: () => dispatch(fetchTopRatedMovies()),
     fetchNowPlayingMoviesData: () => dispatch(fetchNowPlayingMovies()),
+    fetchPopularMoviesData: () => dispatch(fetchPopularMovies()),
   };
 };
 
@@ -101,6 +113,7 @@ const mapStateToProps = (state) => {
     upcomingMovies: state.upcomingMovies.upcomingMovies,
     topRatedMovies: state.topRatedMovies.topRatedMovies,
     nowPlayingMovies: state.nowPlayingMovies.nowPlayingMovies,
+    popularMovies: state.popularMovies.popularMovies,
   };
 };
 

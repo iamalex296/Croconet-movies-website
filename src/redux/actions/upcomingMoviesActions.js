@@ -6,9 +6,6 @@ import {
   FETCH_UPCOMING_MOVIES_FAILURE,
 } from "../actionTypes/upcomingMoviesActionTypes";
 
-const API_key = "a7800c107865c419bc37a1f55d4993ae";
-const upcomingMovies_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_key}`;
-
 export const fetchUpcomingMoviesRequest = () => {
   return {
     type: FETCH_UPCOMING_MOVIES_REQUEST,
@@ -33,14 +30,14 @@ export const fetchUpcomingMovies = () => {
   return (dispatch) => {
     dispatch(fetchUpcomingMoviesRequest());
     axios
-      .get(upcomingMovies_URL)
+      .get(process.env.REACT_APP_UPCOMING_MOVIES_API_URL)
       .then((response) => {
         const upcomingMoviesResponseData = response.data;
         // console.log("responseUpcomingMoviesData", response.data);
         dispatch(fetchUpcomingMoviesSuccess(upcomingMoviesResponseData));
       })
       .catch((error) => {
-        const errorMessage = error;
+        const errorMessage = error.message;
         dispatch(fetchUpcomingMoviesFailure(errorMessage));
       });
   };

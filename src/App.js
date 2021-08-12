@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 
 import { Route, Redirect, Switch } from "react-router-dom";
 
@@ -16,46 +15,21 @@ import Footer from "./components/Footer/Footer";
 
 import "./App.css";
 
-const API_key = "a7800c107865c419bc37a1f55d4993ae";
-
-// const poster_URL = "https://image.tmdb.org/t/p/original/";
-
-const popularMovies_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_key}`;
-
 function App() {
-  const [popularMovies, setPopularMovies] = useState(null);
-  const [popularPageMoviesData, setPopularPageMoviesData] = useState(null);
   const [error, setError] = useState(false);
-
-  useEffect(() => {
-    const getPopularMoviesData = async () => {
-      await axios
-        .get(popularMovies_URL)
-        .then((response) => {
-          // console.log("popularMoviesData", response.data);
-          setPopularMovies(response.data);
-          setPopularPageMoviesData(response.data);
-        })
-        .catch((error) => setError(error));
-    };
-
-    getPopularMoviesData();
-  }, []);
 
   if (error) return `ERROR: ${error.message}`;
 
-  if (!popularMovies) return null;
-
   return (
     <div className="App">
-      <Header API_key={API_key} setError={setError} />
+      <Header API_key={process.env.REACT_APP_API_KEY} setError={setError} />
       <Switch>
         <Route path="/" exact>
           <Redirect to="/home" />
         </Route>
 
         <Route path="/home" exact>
-          <HomePage popularMovies={popularMovies} />
+          <HomePage />
         </Route>
 
         <Route path="/trailers">
@@ -67,7 +41,10 @@ function App() {
         </Route>
 
         <Route path="/movies/:movieId">
-          <SignleMoviePage API_key={API_key} setError={setError} />
+          <SignleMoviePage
+            API_key={process.env.REACT_APP_API_KEY}
+            setError={setError}
+          />
         </Route>
 
         <Route path="/series">
@@ -75,7 +52,7 @@ function App() {
         </Route>
 
         <Route path="/popular">
-          <PopularMoviesPage popularPageMoviesData={popularPageMoviesData} />
+          <PopularMoviesPage />
         </Route>
 
         <Route path="/registration">

@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchPopularMovies } from "../../redux/actions/popularMoviesActions";
+
 import Cards from "../Cards/Cards";
 
-const PopularMoviesPageContentLayout = ({ popularPageMoviesData }) => {
+const PopularMoviesPageContentLayout = () => {
+  const popularPageMoviesData = useSelector(
+    (state) => state.popularMovies.popularMovies
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPopularMovies());
+  }, [dispatch]);
+
   return (
     <div>
       <Cards

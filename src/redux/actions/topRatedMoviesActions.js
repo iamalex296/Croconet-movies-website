@@ -6,9 +6,6 @@ import {
   FETCH_TOP_RATED_MOVIES_FAILURE,
 } from "../actionTypes/topRatedMoviesActionTypes";
 
-const API_key = "a7800c107865c419bc37a1f55d4993ae";
-const topRatedMovies_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_key}`;
-
 export const fetchTopRatedMoviesRequest = () => {
   return {
     type: FETCH_TOP_RATED_MOVIES_REQUEST,
@@ -33,14 +30,14 @@ export const fetchTopRatedMovies = () => {
   return (dispatch) => {
     dispatch(fetchTopRatedMoviesRequest());
     axios
-      .get(topRatedMovies_URL)
+      .get(process.env.REACT_APP_TOP_RATED_MOVIES_API_URL)
       .then((response) => {
         const topRatedMoviesResponseData = response.data;
         // console.log("responseTopRatedMoviesData", response.data);
         dispatch(fetchTopRatedMoviesSuccess(topRatedMoviesResponseData));
       })
       .catch((error) => {
-        const errorMessage = error;
+        const errorMessage = error.message;
         dispatch(fetchTopRatedMoviesFailure(errorMessage));
       });
   };

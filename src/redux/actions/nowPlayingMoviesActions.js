@@ -6,9 +6,6 @@ import {
   FETCH_NOW_PLAYING_MOVIES_FAILURE,
 } from "../actionTypes/nowPlayingMoviesActionTypes";
 
-const API_key = "a7800c107865c419bc37a1f55d4993ae";
-const nowPlayingMovies_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_key}`;
-
 export const fetchNowPlayingMoviesRequest = () => {
   return {
     type: FETCH_NOW_PLAYING_MOVIES_REQUEST,
@@ -33,14 +30,14 @@ export const fetchNowPlayingMovies = () => {
   return (dispatch) => {
     dispatch(fetchNowPlayingMoviesRequest());
     axios
-      .get(nowPlayingMovies_URL)
+      .get(process.env.REACT_APP_NOW_PLAYING_MOVIES_API_URL)
       .then((response) => {
         const nowPlayingMoviesResponseData = response.data;
         // console.log("responseNowPlayingMoviesData", response.data);
         dispatch(fetchNowPlayingMoviesSuccess(nowPlayingMoviesResponseData));
       })
       .catch((error) => {
-        const errorMessage = error;
+        const errorMessage = error.message;
         dispatch(fetchNowPlayingMoviesFailure(errorMessage));
       });
   };
