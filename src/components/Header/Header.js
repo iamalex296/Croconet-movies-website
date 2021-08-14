@@ -17,7 +17,7 @@ import MoviesGenrePopup from "../Popup/MoviesGenrePopup";
 
 import classes from "./Header.module.css";
 
-const Header = ({ API_key, setError }) => {
+const Header = ({ setError }) => {
   const [toggleSearchInput, setToggleSearchInput] = useState(false);
   const [toggleLoginRegisterPopup, setToggleLoginRegisterPopup] = useState(
     false
@@ -110,7 +110,6 @@ const Header = ({ API_key, setError }) => {
         >
           {toggleSearchInput && (
             <SearchInput
-              API_key={API_key}
               setError={setError}
               setToggleSearchInput={setToggleSearchInput}
             />

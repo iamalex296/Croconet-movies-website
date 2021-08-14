@@ -4,7 +4,7 @@ import axios from "axios";
 import classes from "./SearchInput.module.css";
 import SearchedMoviesPopup from "../Popup/SearchedMoviesPopup";
 
-const SearchInput = ({ API_key, setError, setToggleSearchInput }) => {
+const SearchInput = ({ setError, setToggleSearchInput }) => {
   const [enteredMovieValue, setEnteredMovieValue] = useState("");
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [showMoviesPopup, setShowMoviesPopup] = useState(false);
@@ -16,7 +16,7 @@ const SearchInput = ({ API_key, setError, setToggleSearchInput }) => {
         if (enteredMovieValue) {
           axios
             .get(
-              `https://api.themoviedb.org/3/search/movie?query=${enteredMovieValue}&api_key=${API_key}`
+              `https://api.themoviedb.org/3/search/movie?query=${enteredMovieValue}&api_key=${process.env.REACT_APP_API_KEY}`
             )
             .then((response) => {
               // console.log("searchedMovieData", response.data.results);
@@ -32,7 +32,7 @@ const SearchInput = ({ API_key, setError, setToggleSearchInput }) => {
     };
 
     getPopularMoviesData();
-  }, [API_key, enteredMovieValue, setError]);
+  }, [enteredMovieValue, setError]);
 
   return (
     <>

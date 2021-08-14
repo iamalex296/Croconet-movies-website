@@ -17,7 +17,7 @@ const SignleMoviePageLayout = ({ setError, API_key }) => {
   const [movieVideo, setMovieVideo] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  const movieDetailsObj_URL = `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${API_key}&append_to_response=videos`;
+  const movieDetailsObj_URL = `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`;
 
   useEffect(() => {
     const getSingleMovieDetailsObj = async () => {

@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header API_key={process.env.REACT_APP_API_KEY} setError={setError} />
+      <Header setError={setError} />
       <Switch>
         <Route path="/" exact>
           <Redirect to="/home" />
@@ -41,10 +41,7 @@ function App() {
         </Route>
 
         <Route path="/movies/:movieId">
-          <SignleMoviePage
-            API_key={process.env.REACT_APP_API_KEY}
-            setError={setError}
-          />
+          <SignleMoviePage setError={setError} />
         </Route>
 
         <Route path="/series">
