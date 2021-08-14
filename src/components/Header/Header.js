@@ -66,7 +66,7 @@ const Header = ({ API_key, setError }) => {
               <MoviesGenrePopup className={classes["movies-popup-box"]} />
             </li>
             <li className={classes["header_navbar_list"]}>
-              <Link to="./series">
+              <Link to="/series">
                 <Icon
                   className={classes["icon_style"]}
                   src={VideoIcon}
@@ -76,7 +76,7 @@ const Header = ({ API_key, setError }) => {
               </Link>
             </li>
             <li className={classes["header_navbar_list"]}>
-              <Link to="./popular">
+              <Link to="/popular">
                 <Icon
                   className={classes["icon_style"]}
                   src={StarIcon}
